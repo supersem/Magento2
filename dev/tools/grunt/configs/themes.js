@@ -50,5 +50,15 @@ module.exports = {
             'css/styles'
         ],
         dsl: 'less'
+    },
+    Margo: {
+        area: 'frontend',
+        name: 'Sem/Margo',
+        locale: 'en_US',
+        files: [
+            'css/styles-m',
+            'css/styles-l'
+        ],
+        dsl: 'less'
     }
 };

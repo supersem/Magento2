@@ -1,0 +1,23 @@
+{
+  "name": "Sem/Margo",
+  "description": "N/A",
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": "~7.2.0||~7.3.0||~7.4.0",
+    "magento/theme-frontend-blank": "100.3.*",
+    "magento/framework": "102.0.*"
+  },
+  "type": "magento2-theme",
+  "version": "100.0.1",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}

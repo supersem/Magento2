@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head>
+     <script src="http://localhost.com:35729/livereload.js" src_type="url"></script>
+  </head>
+  <body>
+    <referenceBlock name="logo">
+      <arguments>
+        <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+        <argument name="logo_alt" xsi:type="string">Margo</argument>
+        <argument name="logo_img_width" xsi:type="number">196</argument>
+        <argument name="logo_img_height" xsi:type="number">58</argument>
+      </arguments>
+    </referenceBlock>
+
+    <referenceBlock name="report.bugs" remove="true" />
+    <referenceContainer name="footer_links" remove="true"/>
+    <referenceBlock name="wish-list-link" remove="true" />
+    <referenceBlock name="advanced-search-link" remove="true" />
+    <referenceBlock name="catalog-compare-link" remove="true" />
+
+    <move element="form.subscribe" destination="subscribe_container" after="-"/>
+    <move element="top.search" destination="header.panel" />
+    <move element="logo" destination="header.panel" />
+    <move element="minicart" destination="header.panel" />
+
+    <referenceContainer name="page.wrapper">
+      <container name="page_top_after_nav" label="Page Top After Navigation Container" htmlTag="div" htmlClass="hero banner after-navigation" before="main.content"/>
+    </referenceContainer>
+
+    <referenceContainer name="footer">
+      <container name="services_footer_links_container" label="Services Footer Links" htmlTag="div" htmlClass="links" after="cms_footer_links_container" />
+      <container name="my_account_links_container" label="My Account Links" htmlTag="div" htmlClass="links" after="services_footer_links_container" />
+      <container name="subscribe_container" label="Subscribe" htmlTag="div" htmlClass="links" after="my_account_links_container" />
+      <container name="social_footer_container" label="Social" htmlTag="div" htmlClass="links" after="subscribe_container" />
+    </referenceContainer>
+
+    <referenceContainer name="services_footer_links_container">
+      <container name="footer_services_title_container" htmlTag="div" htmlClass="footer-title">
+        <block class="Magento\Framework\View\Element\Text" name="footer.contact.title">
+          <arguments>
+            <argument name="text" xsi:type="string">HELP CENTER</argument>
+          </arguments>
+        </block>
+      </container>
+      <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_services">
+        <arguments>
+          <argument name="css_class" xsi:type="string">footer links</argument>
+        </arguments>
+      </block>
+    </referenceContainer>
+
+    <referenceBlock name="footer_links_services">
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="shipping-policy">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Shipping Policy</argument>
+          <argument name="path" xsi:type="string">shipping-policy</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="payment-options">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Payment Options</argument>
+          <argument name="path" xsi:type="string">payment-options</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="order-information">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Order Information</argument>
+          <argument name="path" xsi:type="string">order-information</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="international-shipping">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">International Shipping</argument>
+          <argument name="path" xsi:type="string">international-shipping</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="return-policy">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Return Policy</argument>
+          <argument name="path" xsi:type="string">return-policy</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="product-warrantly">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Product Warrantly</argument>
+          <argument name="path" xsi:type="string">product-warrantly</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="repair-center">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Repair Center</argument>
+          <argument name="path" xsi:type="string">repair-center</argument>
+        </arguments>
+      </block>
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="faq">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">FAQ</argument>
+          <argument name="path" xsi:type="string">faq</argument>
+        </arguments>
+      </block>
+    </referenceBlock>
+
+    <referenceContainer name="my_account_links_container">
+      <container name="my_account_title_container" htmlTag="div" htmlClass="footer-title">
+        <block class="Magento\Framework\View\Element\Text" name="footer.myaccount.title">
+          <arguments>
+            <argument name="text" xsi:type="string">MY ACCOUNT</argument>
+          </arguments>
+        </block>
+      </container>
+      <block class="Magento\Framework\View\Element\Html\Links" name="my_account_links">
+        <arguments>
+          <argument name="css_class" xsi:type="string">footer links</argument>
+        </arguments>
+      </block>
+      <container name="social_footer_container" label="Social Footer Container" htmlTag="div" htmlClass="social-div" before="-"/>
+      <block class="Magento\Framework\View\Element\Template" name="footer.social.links" template="Magento_Theme::social.phtml" />
+    </referenceContainer>
+
+    <referenceBlock name="my_account_links">
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="order-status">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Order Status</argument>
+          <argument name="path" xsi:type="string">order-status</argument>
+        </arguments>
+      </block>
+    </referenceBlock>
+
+    <referenceBlock name="footer.social.links">
+      <block class="Magento\Framework\View\Element\Html\Links" name="footer_social_links_contact">
+        <arguments>
+          <argument name="css_class" xsi:type="string">social</argument>
+        </arguments>
+      </block>
+    </referenceBlock>
+
+    <referenceBlock name="footer_social_links_contact">
+      <block class="Magento\Framework\View\Element\Text\TextList\Link" name="footer.social.facebook">
+        <arguments>
+          <argument name="li_params" xsi:type="array">
+            <item name="class" xsi:type="string">item</item>
+          </argument>
+          <argument name="a_params" xsi:type="array">
+            <item name="class" xsi:type="string">social-icon facebook</item>
+            <item name="href" xsi:type="string">https://www.facebook.com/margo</item>
+          </argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Text\TextList\Link" name="footer.social.gplus">
+        <arguments>
+          <argument name="li_params" xsi:type="array">
+            <item name="class" xsi:type="string">item</item>
+          </argument>
+          <argument name="a_params" xsi:type="array">
+            <item name="class" xsi:type="string">social-icon gplus</item>
+            <item name="href" xsi:type="string">https://plus.google.com/101125054619577019046</item>
+          </argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Text\TextList\Link" name="footer.social.pinterest">
+        <arguments>
+          <argument name="li_params" xsi:type="array">
+            <item name="class" xsi:type="string">item</item>
+          </argument>
+          <argument name="a_params" xsi:type="array">
+            <item name="class" xsi:type="string">social-icon pinterest</item>
+            <item name="href" xsi:type="string">https://www.pinterest.com/pin/166633254951956506</item>
+          </argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Text\TextList\Link" name="footer.social.twitter">
+        <arguments>
+          <argument name="li_params" xsi:type="array">
+            <item name="class" xsi:type="string">item</item>
+          </argument>
+          <argument name="a_params" xsi:type="array">
+            <item name="class" xsi:type="string">social-icon twitter</item>
+            <item name="href" xsi:type="string">https://twitter.com/margo</item>
+          </argument>
+        </arguments>
+      </block>
+    </referenceBlock>
+
+    <referenceContainer name="cms_footer_links_container">
+      <container name="footer_company_info_title_container" htmlTag="div" htmlClass="footer-title">
+        <block class="Magento\Framework\View\Element\Text" name="footer_company_info_title">
+          <arguments>
+            <argument name="text" xsi:type="string">COMPANY INFO</argument>
+          </arguments>
+        </block>
+      </container>
+      <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_cms">
+        <arguments>
+          <argument name="css_class" xsi:type="string">footer links</argument>
+        </arguments>
+      </block>
+    </referenceContainer>
+
+    <referenceBlock name="footer_links_cms">
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="about-link">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">About Us</argument>
+          <argument name="path" xsi:type="string">about</argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="career-link">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Contact Us</argument>
+          <argument name="path" xsi:type="string">contact</argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="sell-link">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Sell to CWS</argument>
+          <argument name="path" xsi:type="string">sell</argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="terms-link">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Terms &amp; Conditions</argument>
+          <argument name="path" xsi:type="string">terms</argument>
+        </arguments>
+      </block>
+
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="auth-link">
+        <arguments>
+          <argument name="label" xsi:type="string" translate="true">Authenticity Guarantee</argument>
+          <argument name="path" xsi:type="string">auth</argument>
+        </arguments>
+      </block>
+    </referenceBlock>
+
+    <move element="privacy-policy-link" destination="footer_links_cms" />
+    <move element="my-account-link" destination="my_account_links" before="-" />
+  </body>
+</page>
