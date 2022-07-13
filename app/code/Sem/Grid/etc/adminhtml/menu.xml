@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Sem_Grid::manager" title="Grid Manager" module="Sem_Grid" sortOrder="10" resource="Sem_Grid::manager"/>
+    	<add id="Sem_Grid::add_row" title="Grid Manager" module="Sem_Grid" sortOrder="20" parent="Sem_Grid::manager" action="grid/grid" resource="Sem_Grid::add_row"/>
+    </menu>
+</config>

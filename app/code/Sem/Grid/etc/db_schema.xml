@@ -1,0 +1,14 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sem_grid_records">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="int" name="page_size" unsigned="true" nullable="false" comment="Page Size"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="text" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="timestamp" name="date_from" comment="Date From"/>
+        <column xsi:type="timestamp" name="date_to" comment="Date To"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
