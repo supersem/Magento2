@@ -9,57 +9,53 @@ use Magento\Framework\UrlInterface;
 
 class Action extends Column
 {
-    /** Url path */
-    const ROW_EDIT_URL = 'grid/grid/addrow';
-    /** @var UrlInterface */
-    protected $_urlBuilder;
 
-    /**
-     * @var string
-     */
-    private $_editUrl;
+    const URL_PATH_EDIT = 'grid/grid/addrow';
+    const URL_PATH_DELETE = 'grid/grid/deleterow';
 
-    /**
-     * @param ContextInterface   $context
-     * @param UiComponentFactory $uiComponentFactory
-     * @param UrlInterface       $urlBuilder
-     * @param array              $components
-     * @param array              $data
-     * @param string             $editUrl
-     */
+    protected $urlBuilder;
+
+
     public function __construct(
         ContextInterface $context,
         UiComponentFactory $uiComponentFactory,
         UrlInterface $urlBuilder,
         array $components = [],
-        array $data = [],
-        $editUrl = self::ROW_EDIT_URL
-    ) 
-    {
-        $this->_urlBuilder = $urlBuilder;
-        $this->_editUrl = $editUrl;
+        array $data = []
+    ) {
+        $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
-    /**
-     * Prepare Data Source.
-     *
-     * @param array $dataSource
-     *
-     * @return array
-     */
+
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
-            foreach ($dataSource['data']['items'] as &$item) {
-                $name = $this->getData('name');
+            foreach ($dataSource['data']['items'] as & $item) {
                 if (isset($item['entity_id'])) {
-                    $item[$name]['edit'] = [
-                        'href' => $this->_urlBuilder->getUrl(
-                            $this->_editUrl, 
-                            ['id' => $item['entity_id']]
-                        ),
-                        'label' => __('Edit'),
+                    $item[$this->getData('name')] = [
+                        'edit' => [
+                            'href' => $this->urlBuilder->getUrl(
+                                static::URL_PATH_EDIT,
+                                [
+                                    'id' => $item['entity_id']
+                                ]
+                            ),
+                            'label' => __('Edit')
+                        ],
+                        'delete' => [
+                            'href' => $this->urlBuilder->getUrl(
+                                static::URL_PATH_DELETE,
+                                [
+                                    'id' => $item['entity_id']
+                                ]
+                            ),
+                            'label' => __('Delete'),
+                            'confirm' => [
+                                'title' => __('Delete a record?'),
+                                'message' => __('Are you sure you wan\'t to delete a record?')
+                            ]
+                        ]
                     ];
                 }
             }
